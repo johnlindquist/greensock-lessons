@@ -8940,7 +8940,15 @@ exports._gsScope = _TweenLite._gsScope;
 
 var _gsap = require("gsap");
 
-_gsap.TweenMax.to("h1", 1, { x: 100 });
+_gsap.TweenMax.set("#box", { xPercent: -50, yPercent: -50 });
+
+document.addEventListener("click", function (event) {
+  var clientX = event.clientX,
+      clientY = event.clientY;
+
+
+  _gsap.TweenMax.to("#box", 1, { x: clientX, y: clientY });
+});
 },{"gsap":"node_modules/gsap/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -8970,7 +8978,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49316' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64481' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
