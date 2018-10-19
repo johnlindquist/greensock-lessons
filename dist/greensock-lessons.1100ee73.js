@@ -8940,16 +8940,20 @@ exports._gsScope = _TweenLite._gsScope;
 
 var _gsap = require("gsap");
 
-_gsap.TweenMax.set("#box", { xPercent: -50, yPercent: -50 });
-
-document.addEventListener("click", function (event) {
-  var clientX = event.clientX,
-      clientY = event.clientY;
-
-
-  _gsap.TweenMax.to("#box", 1, { x: clientX, y: clientY });
+_gsap.TweenMax.set("#box", {
+  backgroundColor: "green",
+  width: "50px",
+  height: "50px",
+  x: "50px",
+  y: "50px"
 });
-},{"gsap":"node_modules/gsap/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+document.addEventListener("click", function () {
+  _gsap.TweenMax.to("#box", 0.5, {
+    rotation: "+=30"
+  });
+});
+},{"gsap":"node_modules/gsap/index.js"}],"../../.nvm/versions/node/v10.6.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -8978,7 +8982,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64481' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '52642' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -9119,5 +9123,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["../../.nvm/versions/node/v10.6.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/greensock-lessons.1100ee73.map
