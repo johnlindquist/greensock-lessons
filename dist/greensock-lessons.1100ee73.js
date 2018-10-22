@@ -8948,12 +8948,19 @@ _gsap.TweenMax.set("#box", {
   y: "50px"
 });
 
-document.addEventListener("click", function () {
-  _gsap.TweenMax.to("#box", 0.5, {
-    rotation: "+=30"
-  });
+var timeline = new _gsap.TimelineMax();
+
+timeline.pause();
+
+timeline.to("#box", 0.5, { x: 100 });
+timeline.to("#box", 0.5, { y: 100 });
+timeline.to("#box", 0.5, { x: 50 });
+timeline.to("#box", 0.5, { y: 50 });
+
+document.querySelector("#box").addEventListener("click", function () {
+  timeline.resume();
 });
-},{"gsap":"node_modules/gsap/index.js"}],"../../.nvm/versions/node/v10.6.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"gsap":"node_modules/gsap/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -8982,7 +8989,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '52642' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '53319' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -9123,5 +9130,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../../.nvm/versions/node/v10.6.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/greensock-lessons.1100ee73.map
