@@ -8,7 +8,7 @@ TweenMax.set("#box", {
   y: "50px"
 })
 
-const timeline = new TimelineMax()
+const timeline = new TimelineMax({ repeat: -1 })
 
 timeline.pause()
 
@@ -20,5 +20,9 @@ timeline.to("#box", 0.5, { y: 50 })
 document
   .querySelector("#box")
   .addEventListener("click", () => {
-    timeline.resume()
+    if (timeline.isActive()) {
+      timeline.pause()
+    } else {
+      timeline.resume()
+    }
   })

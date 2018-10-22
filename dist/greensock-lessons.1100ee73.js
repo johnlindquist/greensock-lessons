@@ -8948,7 +8948,7 @@ _gsap.TweenMax.set("#box", {
   y: "50px"
 });
 
-var timeline = new _gsap.TimelineMax();
+var timeline = new _gsap.TimelineMax({ repeat: -1 });
 
 timeline.pause();
 
@@ -8958,7 +8958,11 @@ timeline.to("#box", 0.5, { x: 50 });
 timeline.to("#box", 0.5, { y: 50 });
 
 document.querySelector("#box").addEventListener("click", function () {
-  timeline.resume();
+  if (timeline.isActive()) {
+    timeline.pause();
+  } else {
+    timeline.resume();
+  }
 });
 },{"gsap":"node_modules/gsap/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
