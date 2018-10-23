@@ -1,24 +1,25 @@
-import { TweenMax, TimelineMax } from "gsap"
+import { TweenMax } from "gsap"
 
-TweenMax.set("#box", {
-  backgroundColor: "green",
-  width: "50px",
-  height: "50px",
-  x: "50px",
-  y: "50px",
-  //centering the origin
-  left: "50%",
-  top: "50%",
-  xPercent: "-50",
-  yPercent: "-50"
+const divs = Array.from({ length: 100 }, () =>
+  document.createElement("div")
+)
+
+divs.forEach(div => {
+  TweenMax.set(div, {
+    position: "absolute",
+    x: `${Math.random() * window.innerWidth}px`,
+    y: `${Math.random() * window.innerHeight}px`,
+    width: 20,
+    height: 20,
+    backgroundColor: "green",
+    border: "3px solid black"
+  })
+
+  document.body.appendChild(div)
 })
 
 document.addEventListener("click", event => {
   const { x, y } = event
-  TweenMax.fromTo(
-    "#box",
-    1,
-    { x, y },
-    { x: 500, y: 500 }
-  )
+
+  TweenMax.to(divs, 1, { x, y })
 })
