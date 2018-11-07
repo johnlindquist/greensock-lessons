@@ -8940,31 +8940,24 @@ exports._gsScope = _TweenLite._gsScope;
 
 var _gsap = require("gsap");
 
-var divs = Array.from({ length: 100 }, function () {
-  return document.createElement("div");
+var box = document.createElement("div");
+box.setAttribute("class", "box");
+document.body.appendChild(box);
+
+box.addEventListener("mouseover", function () {
+  _gsap.TweenMax.to(box, 0.25, { className: "+=hover" });
 });
 
-divs.forEach(function (div) {
-  _gsap.TweenMax.set(div, {
-    position: "absolute",
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    width: 20,
-    height: 20,
-    //centering
-    xPercent: -50,
-    yPercent: -50,
-    backgroundColor: "green",
-    border: "3px solid black"
-  });
-
-  document.body.appendChild(div);
+box.addEventListener("mouseout", function () {
+  _gsap.TweenMax.to(box, 0.25, { className: "-=hover" });
 });
 
-_gsap.TweenMax.to(divs, 10, { x: 100, y: 100 });
+box.addEventListener("mousedown", function () {
+  _gsap.TweenMax.to(box, 0.25, { className: "+=down" });
+});
 
-document.addEventListener("click", function (event) {
-  _gsap.TweenMax.killAll(true);
+box.addEventListener("mouseup", function () {
+  _gsap.TweenMax.to(box, 0.25, { className: "-=down" });
 });
 },{"gsap":"node_modules/gsap/index.js"}]},{},["index.js"], null)
 //# sourceMappingURL=/greensock-lessons.1100ee73.map
