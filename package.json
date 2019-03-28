@@ -3,9 +3,9 @@
     "dev": "parcel index.html"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.9.7"
+    "parcel-bundler": "^1.12.3"
   },
   "dependencies": {
-    "gsap": "^2.0.2"
+    "gsap": "^2.1.2"
   }
 }
