@@ -1,9 +1,10 @@
-import { TweenMax } from "gsap"
+import { TweenMax, Elastic } from "gsap"
 
-const box = document.createElement("div")
-box.setAttribute("class", "box")
-document.body.appendChild(box)
+const eggo = document.querySelector("#eggo")
 
-box.addEventListener("click", () => {
-  TweenMax.to(box, 1, { rotationY: "+=180" })
+TweenMax.to(eggo, 0.75, {
+  scale: 1.25,
+  repeat: -1,
+  yoyo: true,
+  ease: Elastic.easeInOut
 })
